@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 const App = () => {
   const expenses = [
     {
@@ -21,7 +22,17 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-  return <Expenses items={expenses}></Expenses>;
+
+  // function to receive the value from the child (new expense)
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  };
+  return (
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses}></Expenses>
+    </div>
+  );
 };
 
 export default App;
